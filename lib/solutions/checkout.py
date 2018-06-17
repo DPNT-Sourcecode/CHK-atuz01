@@ -8,6 +8,7 @@ def checkout(skus):
     found_C = 0
     found_D = 0
     found_E = 0
+    found_F = 0
     total_amount = 0
     for letter in skus:
         count = skus.count(letter)
@@ -49,7 +50,9 @@ def checkout(skus):
                 found_E = count
                 found_B = count_B
         elif(letter == 'F'):
-            total_amount = count * 10 - (int(count/2) * 10)
+            if (found_F == 0):
+                total_amount = count * 10 - (int(count/2) * 10)
+                found_F = count
         else:
             return -1
     return total_amount
