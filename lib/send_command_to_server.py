@@ -38,7 +38,7 @@ from runner.user_input_action import get_user_input
     |  4.  | Implement the required method in                            |
     |      |   ./lib/solutions                                           |
     |  5.  | Deploy to production by typing "deploy".                    |
-    |  6.  | Observe output, check for failed requests.                  |
+    |  6.  | Observe output, check for failed requests.          
     |  7.  | If passed, go to step 3.                                    |
     +------+-------------------------------------------------------------+
  
