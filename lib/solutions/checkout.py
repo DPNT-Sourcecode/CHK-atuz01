@@ -4,9 +4,9 @@
 # skus = unicode string
 def checkout(skus):
     prices = {'A' : [50 ,0 ], 'B' : [30, 0], 'C' : [20, 0], 'D' : [15,0], 'E' : [40,0], 'F' : [10,0] ,
-             'G' : [20,0] ,'H' : [10, 0], 'I' : [35, 0] ,'J' : [60, 0] , 'K' : [80, 0] , 'L' : [90,0],
+             'G' : [20,0] ,'H' : [10, 0], 'I' : [35, 0] ,'J' : [60, 0] , 'K' : [70, 0] , 'L' : [90,0],
               'M': [15,0] , 'N' : [40, 0] , 'O' : [10, 0], 'P' :[50, 0] , 'Q' : [30, 0] , 'R' :[50,0] ,
-              'S': [30,0], 'T' :[20,0], 'U' : [40,0] , 'V' : [50, 0], 'W' : [20,0], 'X' : [90, 0], 'Y': [10,0],
+              'S': [20,0], 'T' :[20,0], 'U' : [40,0] , 'V' : [50, 0], 'W' : [20,0], 'X' : [90, 0], 'Y': [10,0],
               'Z': [50,0]}
     total_amount = 0
     for letter in skus:
@@ -31,7 +31,7 @@ def checkout(skus):
                                    count_E * prices.get('E')[0]
                 prices.get(letter)[1] = count
                 prices.get('E')[0] = count_E
-        elif(letter in 'CDGIJLOSTWXYZ'):
+        elif(letter in 'CDGIJLO'):
             if(prices.get(letter)[1] == 0) :
                 total_amount = total_amount + count * prices.get(letter)[0]
                 prices.get(letter)[1] = count
@@ -65,7 +65,7 @@ def checkout(skus):
             prices.get(letter)[1] = count
         elif letter == 'K':
             if(prices.get(letter)[1] == 0):
-              total_amount = total_amount + int(count/2) * 150 + (count % 2) * prices.get(letter)[0]
+              total_amount = total_amount + int(count/2) * 120 + (count % 2) * prices.get(letter)[0]
             prices.get(letter)[1] = count
         elif letter == 'P':
             if(prices.get(letter)[1] == 0):
@@ -141,6 +141,24 @@ def checkout(skus):
                     total_amount = total_amount + count * prices.get(letter)[0]
                 prices.get(letter)[1] = count
                 prices.get('Q')[1] = count_Q
+        elif (letter in 'STWXYZ'):
+            l_count = []
+            total_count = 0;
+            for x in 'STWXYZ':
+                temp_count = skus.count(x)
+                total_count = total_count + temp_count
+                i = 0
+                while i < temp_count:
+                    l_count.append(prices.get(x)[0])
+                    i = i + 1
+            l_count.sort()
+            if (total_count > 3):
+                for item in l_count:
+                    total_amount = total_amount + item[1]
+            elif(total_count % 3 == 1):
+                total_amount = total_amount + int(total_count / 3) * 45 + max(total_count)
+            else:
+               total_amount = total_amount + int(total_count /3) * 45 + total_count[-2] + total_count[-1]
         else:
             return -1
     return total_amount
