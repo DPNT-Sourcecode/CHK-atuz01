@@ -79,7 +79,7 @@ def checkout(skus):
         elif(letter == 'U'):
             if (prices.get(letter)[1] == 0):
                 if( count % 3 == 0 and count >= 3) :
-                    total_amount = total_amount + count * prices.get(letter)[0] - (int(count / 3) - 1 ) * prices.get(letter)[0]
+                    total_amount = total_amount + count * prices.get(letter)[0] - (int(count % 3) - 1) * prices.get(letter)[0]
                 elif ( count < 3) :
                     total_amount = total_amount + count * prices.get(letter)[0]
                 else:
@@ -116,13 +116,13 @@ def checkout(skus):
                 prices.get('R')[1]= skus.count('R')
                 count_R = prices.get('R')[1]
                 if (count_R >= 3) :
-                    final_count = count - (int(count_R / 2))
+                    final_count = count - (int(count_R / 3))
                     if final_count < 0:
                         final_count = 0
                     total_amount = total_amount + (int((final_count / 3)) * 80) + \
                                    ((final_count % 3) * prices.get(letter)[0]) + count_R * prices.get('R')[0]
                 else:
-                    total_amount = total_amount + (int(count / 3) * 45) + (count % 3) * prices.get(letter)[0] + \
+                    total_amount = total_amount + (int(count / 3) * 80) + (count % 3) * prices.get(letter)[0] + \
                                    count_R * prices.get('R')[0]
                 prices.get(letter)[1] = count
                 prices.get('R')[0] = count_R
