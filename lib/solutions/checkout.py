@@ -82,7 +82,7 @@ def checkout(skus):
                     total_amount = total_amount + count * prices.get(letter)[0] - (int(count / 3) - 1) * prices.get(letter)[0]
                 elif ( count < 3) :
                     total_amount = total_amount + count * prices.get(letter)[0]
-                else:
+                elif count % 3 :
                     total_amount = total_amount + count * prices.get(letter)[0] - ((count % 3) - 1) * prices.get(letter)[0]
                 prices.get(letter)[1] = count
         elif letter == 'M':
