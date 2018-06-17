@@ -149,7 +149,7 @@ def checkout(skus):
                     temp_count = skus.count(x)
                     total_count = total_count + temp_count
                     i = 0
-                    if (temp_count != 0):
+                    if (temp_count > 0):
                         while i < temp_count:
                             l_count.append(prices.get(x)[0])
                             i = i + 1
@@ -161,7 +161,7 @@ def checkout(skus):
                 elif(total_count % 3 == 1):
                     total_amount = total_amount + int(total_count/3) * 45 + l_count[-1]
                 elif (total_count % 3 == 0 and total_count >= 3):
-                    total_amount = total_amount + int(total_count /3) * 45
+                    total_amount = total_amount + int(total_count/3) * 45
                 else:
                     total_amount = total_amount + int(total_count/3) * 45 + l_count[-2] + l_count[-1]
         else:
