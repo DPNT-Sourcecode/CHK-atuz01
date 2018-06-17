@@ -148,9 +148,10 @@ def checkout(skus):
                 temp_count = skus.count(x)
                 total_count = total_count + temp_count
                 i = 0
-                while i < temp_count:
-                    l_count.append(prices.get(x)[0])
-                    i = i + 1
+                if (temp_count != 0):
+                    while i < temp_count:
+                        l_count.append(prices.get(x)[0])
+                        i = i + 1
             l_count.sort()
             if (total_count > 3):
                 for item in l_count:
