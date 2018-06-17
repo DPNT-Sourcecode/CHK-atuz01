@@ -142,28 +142,28 @@ def checkout(skus):
                 prices.get(letter)[1] = count
                 prices.get('Q')[1] = count_Q
         elif (letter in 'STWXYZ'):
-            l_count = []
-            total_count = 0
-            for x in "STWXYZ":
-                temp_count = skus.count(x)
-                total_count = total_count + temp_count
-                i = 0
-                if (temp_count != 0):
-                    while i < temp_count:
-                        l_count.append(prices.get(x)[0])
-                        i = i + 1
-                prices.get(x)[1] = 1
-            l_count.sort()
-            if (total_count < 3):
-                for item in l_count:
-                    total_amount = total_amount + item
-            elif(total_count % 3 == 1):
-                total_amount = total_amount + int(total_count/3) * 45 + max(l_count)
-            elif (total_count % 3 == 0 and total_count >= 3):
-                total_amount = total_amount + int(total_count /3) *45
-            else:
-               total_amount = total_amount + int(total_count/3) * 45 + l_count[-2] + l_count[-1]
-
+            if (prices.get(x) == 0):
+                l_count = []
+                total_count = 0
+                for x in "STWXYZ":
+                    temp_count = skus.count(x)
+                    total_count = total_count + temp_count
+                    i = 0
+                    if (temp_count != 0):
+                        while i < temp_count:
+                            l_count.append(prices.get(x)[0])
+                            i = i + 1
+                    prices.get(x)[1] = 1
+                l_count.sort()
+                if (total_count < 3):
+                    for item in l_count:
+                        total_amount = total_amount + item
+                elif(total_count % 3 == 1):
+                    total_amount = total_amount + int(total_count/3) * 45 + l_count[-1]
+                elif (total_count % 3 == 0 and total_count >= 3):
+                    total_amount = total_amount + int(total_count /3) * 45
+                else:
+                    total_amount = total_amount + int(total_count/3) * 45 + l_count[-2] + l_count[-1]
         else:
             return -1
     return total_amount
