@@ -17,7 +17,7 @@ def checkout(skus):
                 found_A = count
         elif(letter == 'B'):
             if(found_B == 0):
-                
+
                 total_amount = total_amount + (int((count / 2)) * 45) + ((count % 2) * 30)
                 found_B = count
         elif(letter == 'C'):
