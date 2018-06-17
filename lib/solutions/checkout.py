@@ -78,14 +78,15 @@ def checkout(skus):
             prices.get(letter)[1] = count
         elif(letter == 'U'):
             if (prices.get(letter)[1] == 0):
-                if( count % 3 == 0) :
-                    total_amount = total_amount + count * prices.get(letter)[0] - (int(count / 3) - 1) * prices.get(letter)[0]
-                elif ( count < 4) :
+                if count < 4:
                     total_amount = total_amount + count * prices.get(letter)[0]
-                elif(count == 4) :
+                elif count == 4:
                     total_amount = total_amount + count * prices.get(letter)[0] - prices.get(letter)[0]
-                elif count % 3 == 1:
-                    total_amount = total_amount + count * prices.get(letter)[0] - int(count / 3) * prices.get(letter)[0]
+                else:
+                    if( count % 3 == 0) :
+                        total_amount = total_amount + count * prices.get(letter)[0] - (int(count / 3) - 1) * prices.get(letter)[0]
+                    elif count % 3 == 1:
+                        total_amount = total_amount + count * prices.get(letter)[0] - int(count / 3) * prices.get(letter)[0]
                 else:
                     total_amount = total_amount + count * prices.get(letter)[0] - (int(count/3)) * prices.get(letter)[0]
                 prices.get(letter)[1] = count
