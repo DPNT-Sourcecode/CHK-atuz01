@@ -3,18 +3,18 @@
 # noinspection PyUnusedLocal
 # skus = unicode string
 def checkout(skus):
-    prices = {'A' : (50 ,0 ), 'B' : (30, 0), 'C' : (20, 0), 'D' : (15,0), 'E' : (40,0), 'F' : (10,0) ,
-             'G' : (20,0) ,'H' : (10, 0), 'I' : (35, 0) ,'J' : (60, 0) , 'K' : (80, 0) , 'L' : (90,0),
-              'M': (15,0) , 'N' : (40, 0) , 'O' : (10, 0), 'P' :(50, 0) , 'Q' : (30, 0) , 'R' :(50,0) ,
-              'S': (30,0), 'T' :(20,0), 'U' : (40,0) , 'V' : (50, 0), 'W' : (20,0), 'X' : (90, 0), 'Y': (10,0),
-              'Z': (50,0)}
+    prices = {'A' : [50 ,0 ], 'B' : [30, 0], 'C' : [20, 0], 'D' : [15,0], 'E' : [40,0], 'F' : [10,0] ,
+             'G' : [20,0] ,'H' : [10, 0], 'I' : [35, 0] ,'J' : [60, 0] , 'K' : [80, 0] , 'L' : [90,0],
+              'M': [15,0] , 'N' : [40, 0] , 'O' : [10, 0], 'P' :[50, 0] , 'Q' : [30, 0] , 'R' :[50,0] ,
+              'S': [30,0], 'T' :[20,0], 'U' : [40,0] , 'V' : [50, 0], 'W' : [20,0], 'X' : [90, 0], 'Y': [10,0],
+              'Z': [50,0]}
     total_amount = 0
     for letter in skus:
         count = skus.count(letter)
         if(letter == 'A'):
             if(prices.get(letter)[1] == 0):
                 total_amount = total_amount + (int((count / 5)) * 200) + (int((count % 5)/3) * 130) +\
-                               (int((count % 5 ) % 3)) * prices.get(letter)[0]
+                               (int((count % 5) % 3)) * prices.get(letter)[0]
                 prices.get(letter)[1] = count
         elif(letter == 'B'):
             if(prices.get(letter)[1] == 0):
