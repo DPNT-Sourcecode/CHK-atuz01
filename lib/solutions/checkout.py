@@ -41,7 +41,7 @@ def checkout(skus):
                     final_count = count_B - int(count/2)
                     if (final_count < 0):
                         final_count = 0
-                        total_amount = total_amount + count * 40 + (int((final_count / 2)) * 45) + ((final_count % 2) * 30)
+                    total_amount = total_amount + count * 40 + (int((final_count / 2)) * 45) + ((final_count % 2) * 30)
                 else:
                     total_amount = total_amount + count * 40
                 found_E = count
