@@ -142,7 +142,7 @@ def checkout(skus):
                 prices.get(letter)[1] = count
                 prices.get('Q')[1] = count_Q
         elif (letter in 'STWXYZ'):
-            if (prices.get(x)[1] == 0):
+            if (prices.get(letter)[1] == 0):
                 l_count = []
                 total_count = 0
                 for x in "STWXYZ":
