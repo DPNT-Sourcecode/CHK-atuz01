@@ -7,13 +7,13 @@ def checkout(skus):
     for letter in skus:
         count = skus.count(letter)
         if(letter == 'A'):
-            total_amount = (count // 3) * 130 + (count % 3) * 50
+             total_amount = total_amount + (count // 3) * 130 + (count % 3) * 50
         elif(letter == 'B'):
-            total_amount = (count//2) * 45 + (count % 2) * 30
+            total_amount = total_amount + (count//2) * 45 + (count % 2) * 30
         elif(letter == 'C') :
-            total_amount = count * 20
+            total_amount = total_amount + count * 20
         elif(letter == 'D'):
-            total_amount = count * 15
+            total_amount =  total_amount + count * 15
         else:
             return -1
     return total_amount
