@@ -80,7 +80,7 @@ def checkout(skus):
             if (prices.get(letter)[1] == 0):
                 if( count % 3 == 0 and count >= 3) :
                     total_amount = total_amount + count * prices.get(letter)[0] - (int(count / 3) - 1) * prices.get(letter)[0]
-                elif ( count < 3) :
+                elif ( count < 4) :
                     total_amount = total_amount + count * prices.get(letter)[0]
                 elif count % 3 :
                     total_amount = total_amount + count * prices.get(letter)[0] - ((count % 3) - 1) * prices.get(letter)[0]
