@@ -74,7 +74,7 @@ def checkout(skus):
         elif letter == 'V':
             if(prices.get(letter)[1] == 0):
               total_amount = total_amount + int(count/3) * 130 + (int((count % 3)/2) * 90) + \
-                             (int((count % 3 ) % 2)) * prices.get(letter)[0]
+                             (int((count % 3) % 2)) * prices.get(letter)[0]
             prices.get(letter)[1] = count
         elif(letter == 'U'):
             if (prices.get(letter)[1] == 0):
