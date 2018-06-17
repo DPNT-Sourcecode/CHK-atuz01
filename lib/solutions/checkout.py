@@ -48,6 +48,8 @@ def checkout(skus):
                     total_amount = total_amount + count * 40
                 found_E = count
                 found_B = count_B
+        elif(letter == 'F'):
+            total_amount = count * 10 - (int(count/2) * 10)
         else:
             return -1
     return total_amount
