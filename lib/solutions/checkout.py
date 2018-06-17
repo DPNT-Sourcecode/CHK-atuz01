@@ -46,13 +46,13 @@ def checkout(skus):
                     total_amount = total_amount + count * prices.get(letter)[0] + (int((final_count / 2)) * 45) + \
                                    ((final_count % 2) * prices.get('B')[0])
                 else:
-                    total_amount = total_amount + count * 40
+                    total_amount = total_amount + count * prices.get(letter)[0]
                 prices.get(letter)[1] = count
                 prices.get('B')[1] = count_B
         elif(letter == 'F'):
             if (prices.get(letter)[1] == 0):
                 if( count % 2 == 0 and count >= 2) :
-                    total_amount = total_amount + count * prices.get(letter)[0] - (int(count / 2) - 1 ) * prices.get(letter)[0]
+                    total_amount = total_amount + count * prices.get(letter)[0] - (int(count / 2) - 1) * prices.get(letter)[0]
                 elif ( count < 2) :
                     total_amount = total_amount + count * prices.get(letter)[0]
                 else:
@@ -85,7 +85,61 @@ def checkout(skus):
                 else:
                     total_amount = total_amount + count * prices.get(letter)[0] - (count % 3) * prices.get(letter)[0]
                 prices.get(letter)[1] = count
+        elif letter == 'M':
+            if(prices.get(letter)[1] == 0):
+                prices.get('N')[1]= skus.count('N')
+                count_N = prices.get('N')[1]
+                if (count_N >= 3) :
+                    final_count = count - (int(count_N / 3))
+                    if final_count < 0:
+                        final_count = 0
+                    total_amount = total_amount + final_count * prices.get(letter)[0] + count_N * prices.get('N')[0]
+                else:
+                    total_amount = total_amount + count * prices.get(letter)[0] + count_N * prices.get('N')[0]
+                prices.get(letter)[1] = count
+                prices.get('N')[0] = count_N
+        elif letter == 'N':
+            if (prices.get(letter)[1] == 0):
+                count_M = skus.count('M')
+                if (count >= 3):
 
+                    final_count = count_M - int(count/3)
+                    if (final_count < 0):
+                        final_count = 0
+                    total_amount = total_amount + count * prices.get(letter)[0] + prices.get('M')[0] * final_count
+                else:
+                    total_amount = total_amount + count * prices.get(letter)[0]
+                prices.get(letter)[1] = count
+                prices.get('M')[1] = count_M
+        elif letter == 'Q':
+            if(prices.get(letter)[1] == 0):
+                prices.get('R')[1]= skus.count('R')
+                count_R = prices.get('R')[1]
+                if (count_R >= 3) :
+                    final_count = count - (int(count_R / 2))
+                    if final_count < 0:
+                        final_count = 0
+                    total_amount = total_amount + (int((final_count / 3)) * 80) + \
+                                   ((final_count % 3) * prices.get(letter)[0]) + count_R * prices.get('R')[0]
+                else:
+                    total_amount = total_amount + (int(count / 3) * 45) + (count % 3) * prices.get(letter)[0] + \
+                                   count_R * prices.get('R')[0]
+                prices.get(letter)[1] = count
+                prices.get('R')[0] = count_R
+        elif letter =='R':
+            if (prices.get(letter)[1] == 0):
+                count_Q = skus.count('Q')
+                if (count >= 3):
+
+                    final_count = count_Q - int(count / 3)
+                    if (final_count < 0):
+                        final_count = 0
+                    total_amount = total_amount + count * prices.get(letter)[0] + (int((final_count / 3)) * 80) + \
+                                   ((final_count % 3) * prices.get('Q')[0])
+                else:
+                    total_amount = total_amount + count * prices.get(letter)[0]
+                prices.get(letter)[1] = count
+                prices.get('Q')[1] = count_Q
         else:
             return -1
     return total_amount
