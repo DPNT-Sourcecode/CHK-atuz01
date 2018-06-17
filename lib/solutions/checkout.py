@@ -61,7 +61,7 @@ def checkout(skus):
         elif (letter == 'H'):
             if(prices.get(letter)[1] == 0):
               total_amount = total_amount + int(count/10) * 80 + + (int((count % 10)/5) * 45) + \
-                             (int((count % 10 ) % 5)) * prices.get(letter)[0]
+                             (int((count % 10) % 5)) * prices.get(letter)[0]
             prices.get(letter)[1] = count
         elif letter == 'K':
             if(prices.get(letter)[1] == 0):
@@ -88,7 +88,7 @@ def checkout(skus):
                 prices.get(letter)[1] = count
         elif letter == 'M':
             if(prices.get(letter)[1] == 0):
-                prices.get('N')[1]= skus.count('N')
+                prices.get('N')[1] = skus.count('N')
                 count_N = prices.get('N')[1]
                 if (count_N >= 3) :
                     final_count = count - (int(count_N / 3))
@@ -109,7 +109,7 @@ def checkout(skus):
                         final_count = 0
                     total_amount = total_amount + count * prices.get(letter)[0] + prices.get('M')[0] * final_count
                 else:
-                    total_amount = total_amount + count * prices.get(letter)[0]
+                    total_amount = total_amount + count * prices.get(letter)[0] + count_M * prices.get('M')[0]
                 prices.get(letter)[1] = count
                 prices.get('M')[1] = count_M
         elif letter == 'Q':
