@@ -3,13 +3,13 @@
 # noinspection PyUnusedLocal
 # skus = unicode string
 def checkout(skus):
-    total_amount = 0;
+    total_amount = 0
     for letter in skus:
         count = skus.count(letter)
         if(letter == 'A'):
-             total_amount = total_amount + (count // 3) * 130 + (count % 3) * 50
+             total_amount = total_amount + (int((count / 3)) * 130) + ((count % 3) * 50)
         elif(letter == 'B'):
-            total_amount = total_amount + (count//2) * 45 + (count % 2) * 30
+            total_amount = total_amount + (int((count / 2)) * 45) + ((count % 2) * 30)
         elif(letter == 'C') :
             total_amount = total_amount + count * 20
         elif(letter == 'D'):
