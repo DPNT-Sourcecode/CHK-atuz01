@@ -159,11 +159,11 @@ def checkout(skus):
                     for item in l_count:
                         total_amount = total_amount + item
                 elif(total_count % 3 == 1):
-                    total_amount = total_amount + int(total_count/3) * 45 + l_count[-1]
+                    total_amount = total_amount + int(total_count/3) * 45 + l_count[0]
                 elif (total_count % 3 == 0 and total_count >= 3):
                     total_amount = total_amount + int(total_count/3) * 45
                 else:
-                    total_amount = total_amount + int(total_count/3) * 45 + l_count[-2] + l_count[-1]
+                    total_amount = total_amount + int(total_count/3) * 45 + l_count[0] + l_count[1]
         else:
             return -1
     return total_amount
