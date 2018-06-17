@@ -29,7 +29,10 @@ def checkout(skus):
                 found_D = count
         elif(letter == 'E'):
             if (found_E == 0):
-                total_amount = total_amount + count * 40 - (count % 2) * 30
+                if (count >= 2):
+                    total_amount = total_amount + count * 40 - (count % 2) * 30
+                else :
+                    total_amount = total_amount + count * 40
                 found_E = count
         else:
             return -1
