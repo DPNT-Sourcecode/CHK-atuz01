@@ -31,7 +31,7 @@ def checkout(skus):
                                    count_E * prices.get('E')[0]
                 prices.get(letter)[1] = count
                 prices.get('E')[0] = count_E
-        elif(letter in 'CDGIJLO'):
+        elif(letter in 'CDGIJLOW'):
             if(prices.get(letter)[1] == 0) :
                 total_amount = total_amount + count * prices.get(letter)[0]
                 prices.get(letter)[1] = count
@@ -145,7 +145,7 @@ def checkout(skus):
             if (prices.get(letter)[1] == 0):
                 l_count = []
                 total_count = 0
-                for x in "STWXYZ":
+                for x in "STXYZ":
                     temp_count = skus.count(x)
                     total_count = total_count + temp_count
                     i = 0
